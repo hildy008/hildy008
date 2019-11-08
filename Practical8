@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Mapping API for Java Script </title>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.1.0/dist/leaflet.css"/>
+	<script src="https://unpkg.com/leaflet@1.1.0/dist/leaflet.js"></script>
+</head>
+<body>
+	<h1> Three places in Australia </h1>
+	<p> Created by Daniel Hill for Web Cartography - Practical 8</p>
+	
+	<div id="mapDIV" style="width: 700px; height: 500px"></div>
+
+	<script>
+		var myMap = L.map('mapDIV').setView([-35.92, 137.6], 7);
+
+		var tile_OSM = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+			{attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a>Contributors',}).addTo(myMap);
+	
+		L.control.scale().addTo(myMap);
+
+		var POI1=L.marker([-34.92, 138.60]).addTo(myMap).bindPopup(
+			'Adelaide <br> <img src="https://www.cunard.com/content/dam/cunard/marketing-assets/destinations/adelaide_855533_966x650.jpg.image.750.563.low.jpg"width="180"/>');
+		var POI2=L.marker([-35.75, 137.25]).addTo(myMap).bindPopup('Kangaroo Island <br> <img src="https://www.travelforever.com.au/wp-content/uploads/2019/01/Middle-River-Kangaroo-Island-Kangaroo.-Image-courtesy-of-Ben-Goode.jpg"width="180"/>');
+		var POI3=L.marker([-37.16, 139.78]).addTo(myMap).bindPopup('Robe <br> <img src="https://odis.homeaway.com/odis/destination/d64ba41f-d962-4772-a9c1-d2b727e2efcc.hw5.jpg"width="180"/>');
+	</script>
+</body>
+</html>
